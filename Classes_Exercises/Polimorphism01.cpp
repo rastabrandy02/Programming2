@@ -5,12 +5,17 @@ class animal {
 public:
 	animal() {};
 	virtual void Speak() {};
+	virtual void Eat() = 0;
 };
 class dog : public animal {
 public:
 	void Speak() override
 	{
 		cout << "Guau" << endl;
+	}
+	void Eat() override
+	{
+		cout << "Eating Bacon" << endl;
 	}
 };
 class cat : public animal
@@ -20,19 +25,25 @@ public:
 	{
 		cout << "Miau" << endl;
 	}
-
+	void Eat() override
+	{
+		cout << "Eating Fish" << endl;
+	}
 };
 
 int main()
 {
-	dog tommy;
-	cat flurfills;
-	tommy.Speak();
-	flurfills.Speak();
+	
 
-	animal* anim = new dog;
-	anim->Speak();
+	animal* anim01 = new dog;
+	anim01->Speak();
+	anim01->Eat();
 
-	delete (anim);
+	animal* anim02 = new cat;
+	anim02->Speak();
+	anim02->Eat();
+
+	delete (anim01);
+	delete(anim02);
 	return 0;
 }
