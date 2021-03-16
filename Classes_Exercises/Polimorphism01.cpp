@@ -6,9 +6,12 @@ public:
 	animal() {};
 	virtual void Speak() {};
 	virtual void Eat() = 0;
+	virtual ~animal() {};
 };
 class dog : public animal {
 public:
+	dog() {};
+	int legs = 4;
 	void Speak() override
 	{
 		cout << "Guau" << endl;
@@ -17,10 +20,13 @@ public:
 	{
 		cout << "Eating Bacon" << endl;
 	}
+	~dog() {};
 };
 class cat : public animal
 {
 public:
+	cat() {};
+	int legs = 4;
 	void Speak() override
 	{
 		cout << "Miau" << endl;
@@ -29,6 +35,7 @@ public:
 	{
 		cout << "Eating Fish" << endl;
 	}
+	~cat() {};
 };
 
 int main()
