@@ -23,6 +23,7 @@ public:
 		for (int i = 0; i < other->nodeNum; i++)
 		{
 			 AddElementEnd(otherNode->value);
+			 otherNode = otherNode->nextNode;
 		}
 		nodeNum = other->nodeNum;
 		
@@ -97,8 +98,8 @@ public:
 		}
 		newNode = node;
 		newNode = new Node;
-		newNode->prevNode->nextNode = node;
-		newNode->nextNode->prevNode = node;
+		node->prevNode->nextNode = NewNode;
+		node->nextNode->prevNode = newNode;
 		newNode->value = value;
 		nodeNum++;
 	}
